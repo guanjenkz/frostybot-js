@@ -875,7 +875,7 @@ module.exports = class frostybot_trade_module extends frostybot_module {
 
         // Extract params
         params = this.mod.utils.lower_props(params);
-        var [stub, symbol, side, price, post, ioc, reduce, tag] = this.mod.utils.extract_props(params, ['stub', 'symbol', 'side', 'price', 'post', 'ioc', 'reduce', 'tag']);
+        var [stub, symbol, side, price, post, timeInForce, reduce, tag] = this.mod.utils.extract_props(params, ['stub', 'symbol', 'side', 'price', 'post', 'timeInForce', 'reduce', 'tag']);
         
         // Get parameters from the normalizer
         var param_map = await this.setting(stub, 'param_map');
@@ -916,7 +916,7 @@ module.exports = class frostybot_trade_module extends frostybot_module {
 
         // Add additional parameters
         order_params.params[param_map.post]   = (String(post)   == "true" ? true : undefined);
-        order_params.params[param_map.ioc]    = (String(ioc)    == "true" ? true : undefined);
+        order_params.params[param_map.timeInForce]    = (String(timeInForce)    == 'IOC' ? 'IOC' : (String(timeInForce)    == 'FOK' ? 'FOK' : 'GTC');
         order_params.params[param_map.tag]    = tag;
 
         if (type == 'close') {
