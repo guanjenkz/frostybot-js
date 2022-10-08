@@ -915,8 +915,8 @@ module.exports = class frostybot_trade_module extends frostybot_module {
         }
 
         // Add additional parameters
-        order_params.params[param_map.post]   = (String(post)   == "true" ? true : undefined);
-        order_params.params[param_map.timeInForce]    = (String(timeInForce) == 'IOC' ? 'IOC' : String(timeInForce) == 'FOK' ? 'FOK' : undefined);
+        order_params.params[param_map.post]   = (String(post)   == "true" ? true : undefined); 
+        order_params.params[param_map.timeInForce]    = (String(timeInForce) == 'IOC' ? 'IOC' : String(timeInForce) == 'FOK' ? 'FOK' :  String(timeInForce) == 'GTX' ? 'GTX' : undefined);
         order_params.params[param_map.tag]    = tag;
 
         if (type == 'close') {
