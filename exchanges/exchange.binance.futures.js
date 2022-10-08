@@ -199,7 +199,7 @@ module.exports = class frostybot_exchange_binance_futures extends frostybot_exch
             trailing_stop      : 'TRAILING_STOP_MARKET', 
             post               : null,                // TODO
             reduce             : 'reduceOnly',
-            ioc                : null,                // TODO
+            timeInForce        : 'timeInForce',                // TODO
             tag                : null,                // TODO
             trigger            : 'stopPrice',
         };
